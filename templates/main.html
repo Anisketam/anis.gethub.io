@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>Hebergement</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+
+    <!-- Bootstrap core CSS -->
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+      <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+     #map{
+            height: 300px;
+            width:100%;
+
+
+        }
+      *, ::befbefore, ::afafter {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+.bloc-logo-info{
+  grid-area: 2 / 1 / 3 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bloc-logo{
+  width: 50%;
+}
+.bloc-logo img{
+  width: 100%;
+  height: auto;
+}
+.bloc-info .temps {
+  font-size: 40px;
+}
+.bloc-info .temps::first-letter {
+  text-transform: capitalize;
+}
+.bloc-info .temperature{
+  font-size: 60px;
+}
+.bloc-info .localisation {
+  font-size: 40px;
+  word-wrap: break-word;
+}
+.heure-bloc-prevision{
+  grid-area: 3 / 1 / 4 /-1;
+}
+
+.jour-prevision-bloc{
+  grid-area: 4 / 1 / 5 / -1;
+}
+.jour-prevision-bloc, .heure-bloc-prevision{
+  display: grid;
+  grid-template: 100px / repeat(7, 1fr);
+}
+.bloc-h, .bloc-j {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-top: 1px solid #f1f1f1;
+  font-size: 21px;
+}
+.bloc-h:not(:last-child), .bloc-j:not(:last-child) {
+  border-right: 1px solid #f1f1f1;
+}
+h1{
+  grid-area: 1 / 1 / 2 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #f1f1f1;
+
+}
+
+.containerr{
+  width: 800px;
+  height: 690px;
+  background: linear-gradient(45deg, #1068b6, #ec60a6);
+  display: grid;
+  grid-template: 100px 300px 100px / repeat (8,100px);
+  margin: 100px auto 0;
+  position: relative;
+  border: 1px solid #f1f1f1;
+}
+body{
+  font-family: Arial,sans-serif;
+  color: #f1f1f1;
+  background: linear-gradient(45deg, rgb(22,28,29), rgb(22,28,29));
+  height: 100vh;
+
+}
+
+    </style>
+
+
+
+
+
+  </head>
+  <body>
+
+{% include 'base/navbar.html' %}
+
+{% block content %}
+{% endblock %}
+
+{% include 'base/footer.html' %}
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

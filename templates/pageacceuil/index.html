@@ -1,0 +1,178 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<main>
+
+<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'img/Atlantise.jpg' %}" class="d-block w-100" alt="..."  height="660px">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Bienvenue sur notre Application</h3>
+        <p>Profitez de votre séjour !</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'img/alpha.jpg' %}" class="d-block w-100" alt="..." height="660px">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Choisissez le loyer qui vous convient</h3>
+        <p>Faites comme chez vous !</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'img/hotel-madala-bejaia.jpg' %}" class="d-block w-100" alt="..."  height="660px">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Merci pour votre visite</h3>
+        <p></p>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing text-center">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+
+      <div class="col-lg-4">
+        <img src="{% static 'img/villa.jpg' %}" width="200px" height="200px">
+
+        <h2>Villa</h2>
+        <p></p>
+        <p><a class="btn btn-secondary" href="http://127.0.0.1:8000/appartement">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img src="{% static 'img/Appartement.jpg' %}" width="200px" height="200px">
+
+        <h2>Appartement</h2>
+        <p></p>
+        <p><a class="btn btn-secondary" href="http://127.0.0.1:8000/appartement">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img src="{% static 'img/madala.jpg' %}" width="200px" height="200px">
+        <h2>Hotel</h2>
+        <p></p>
+        <p><a class="btn btn-secondary" href="http://127.0.0.1:8000/hotel">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+   <div class="text-center">
+        <h2 class="featurette-heading text-center">Google <span class="text-muted">Maps</span></h2>
+        <p class="lead text-center">Consulter la positions de votre Hotel préféré ou la localisation de l'appartement ou de la maison que vous avez choisi.</p>
+      </div>
+    <div class="row featurette">
+
+        <div id="map">
+
+    <script>
+    function initMap(){
+        var options = {
+            center:{lat:36.7229874558983, lng:5.062977884656001},
+            zoom:12
+        }
+     map = new google.maps.Map(document.getElementById('map'),options);
+
+//marker
+/*
+        const marker=new google.maps.Marker({
+        position:{lat:36.7229874558983,lng: 5.062977884656001},
+        map:map
+    });
+    //info
+    const detailWindow = new google.maps.InfoWindow({
+    content:'<h2>Hotel Atlantis</h2>'
+    });
+    marker.addListener("mouseover",()=>{
+        detailWindow.open(map,marker);
+    })*/
+        function addMarker(property){
+        const marker=new google.maps.Marker({
+        position:property.location,
+        map:map
+    });
+        }
+         addMarker({location:{lat: 36.7229874558983,lng: 5.062977884656001},
+        content:'<h2>Hotel Atlantis</h2>'});
+         addMarker({location:{lat: 36.751189906326786,lng: 5.048617773084474},
+        content:'<h2>Hotel Cristal</h2>'});
+
+    }
+
+
+    </script>
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBlvhePrj-YX7yH5Z3zNAX5LXCcdUnEuM&callback=initMap">
+    </script>
+    </div>
+
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading">Hôtel <span class="text-muted">ATLANTIS</span></h2>
+        <p class="lead">Situé à 5 minutes de l’aéroport, 10 minutes du centre-ville de Bejaia et 8 minutes de la plage, l’Hôtel Atlantis Béjaïa Aéroport est le point de départ idéal pour découvrir Béjaïa et ses environs.<br>
+        Hotel -
+Restaurant<br>
+Buffet -
+Cafétéria - Piscine<br>
+Espace VIP -
+Navette aéroport<br>
+Service Coiffure et Bien être
+        </p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img src="{% static 'img/Atlantise.jpg' %}" width="400px" height="400px">
+
+      </div>
+
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Hôtel <span class="text-muted">CRISTAL</span></h2>
+        <p class="lead">Chambres et restaurant fonctionnels dans hôtel moderne avec espace de réunion.<br> Wi-Fi gratuit -
+Petit déjeuner gratuit   <br>
+Parking gratuit - Service de blanchisserie  <br>
+Adapté aux enfants <br>
+          Adresse : 35 Rue des Frères Mellali, Béjaïa 06000<br>
+          Téléphone : 034 81 85 85<br>
+        </p>
+      </div>
+      <div class="col-md-5">
+        <img src="{% static 'img/image4.jpg' %}" width="400px" height="400px">
+      </div>
+
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+  </div><!-- /.container -->
+</main>
+{% endblock %}
